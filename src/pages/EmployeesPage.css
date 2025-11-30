@@ -1,0 +1,247 @@
+.employees-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.employees-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.employees-header h1 {
+  margin: 0 0 8px;
+  font-size: 1.75rem;
+  color: var(--bybit-text);
+}
+
+.employees-subtitle {
+  color: var(--bybit-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.refresh-button {
+  background: var(--bybit-yellow);
+  color: #111;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  white-space: nowrap;
+}
+
+.refresh-button:hover {
+  filter: brightness(0.95);
+}
+
+.employees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.employee-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.employee-card--inactive {
+  opacity: 0.7;
+  border-color: rgba(255, 76, 76, 0.3);
+}
+
+.employee-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.employee-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.employee-login {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--bybit-text);
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role-badge--admin {
+  background: rgba(255, 76, 76, 0.2);
+  color: #ff8c8c;
+  border: 1px solid rgba(255, 76, 76, 0.3);
+}
+
+.role-badge--manager {
+  background: rgba(79, 158, 255, 0.2);
+  color: #7fb3ff;
+  border: 1px solid rgba(79, 158, 255, 0.3);
+}
+
+.role-badge--operator {
+  background: rgba(0, 209, 178, 0.2);
+  color: #00d1b2;
+  border: 1px solid rgba(0, 209, 178, 0.3);
+}
+
+.employee-status {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.employee-status.active {
+  background: rgba(0, 209, 178, 0.15);
+  color: #00d1b2;
+  border: 1px solid rgba(0, 209, 178, 0.3);
+}
+
+.employee-status.inactive {
+  background: rgba(255, 76, 76, 0.15);
+  color: #ff8c8c;
+  border: 1px solid rgba(255, 76, 76, 0.3);
+}
+
+.employee-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--bybit-border);
+}
+
+.employee-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.detail-label {
+  color: var(--bybit-muted);
+  font-size: 0.85rem;
+}
+
+.detail-value {
+  color: var(--bybit-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.employee-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--bybit-border);
+}
+
+.role-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.role-selector label {
+  color: var(--bybit-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.role-select {
+  background: var(--bybit-card-secondary);
+  border: 1px solid var(--bybit-border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--bybit-text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.role-select:focus {
+  outline: none;
+  border-color: var(--bybit-yellow);
+}
+
+.role-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.role-select option {
+  background: var(--bybit-card-secondary);
+  color: var(--bybit-text);
+}
+
+.status-toggle-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid;
+}
+
+.status-toggle-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status-toggle-btn.deactivate {
+  background: rgba(255, 76, 76, 0.15);
+  border-color: rgba(255, 76, 76, 0.3);
+  color: #ff8c8c;
+}
+
+.status-toggle-btn.deactivate:hover:not(:disabled) {
+  background: rgba(255, 76, 76, 0.25);
+  border-color: rgba(255, 76, 76, 0.5);
+}
+
+.status-toggle-btn.activate {
+  background: rgba(0, 209, 178, 0.15);
+  border-color: rgba(0, 209, 178, 0.3);
+  color: #00d1b2;
+}
+
+.status-toggle-btn.activate:hover:not(:disabled) {
+  background: rgba(0, 209, 178, 0.25);
+  border-color: rgba(0, 209, 178, 0.5);
+}
+
+@media (max-width: 768px) {
+  .employees-header {
+    flex-direction: column;
+  }
+
+  .employees-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

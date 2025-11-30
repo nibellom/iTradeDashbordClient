@@ -1,0 +1,125 @@
+.pending-activation-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bybit-black), #0f141d);
+  padding: 20px;
+}
+
+.pending-activation-container {
+  background: var(--bybit-card);
+  border: 1px solid var(--bybit-border);
+  border-radius: 18px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--bybit-shadow);
+  text-align: center;
+}
+
+.pending-activation-icon {
+  color: var(--bybit-yellow);
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.pending-activation-title {
+  color: var(--bybit-text);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.pending-activation-message {
+  color: var(--bybit-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.pending-activation-message strong {
+  color: var(--bybit-yellow);
+}
+
+.pending-activation-submessage {
+  color: var(--bybit-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 32px;
+}
+
+.pending-activation-status {
+  margin: 32px 0;
+  padding: 20px;
+  background: var(--bybit-card-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--bybit-border);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--bybit-yellow);
+  font-weight: 500;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bybit-yellow);
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.pending-activation-logout {
+  background: transparent;
+  border: 1px solid var(--bybit-border);
+  color: var(--bybit-text);
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 24px;
+}
+
+.pending-activation-logout:hover {
+  background: rgba(255, 76, 76, 0.15);
+  border-color: rgba(255, 76, 76, 0.3);
+  color: #ff8c8c;
+}
+
+@media (max-width: 480px) {
+  .pending-activation-container {
+    padding: 32px 24px;
+  }
+
+  .pending-activation-title {
+    font-size: 1.5rem;
+  }
+}
+

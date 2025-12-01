@@ -498,6 +498,39 @@ table {
   border-bottom: 1px solid var(--bybit-border);
 }
 
+/* Стили для input полей в формах покупки/продажи */
+.card.blue-grey input[type="text"],
+.card.blue-grey input[type="number"],
+.card.blue-grey input[type="email"],
+.card.blue-grey input[type="password"] {
+  color: var(--bybit-text) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.card.blue-grey input[type="text"]:focus,
+.card.blue-grey input[type="number"]:focus,
+.card.blue-grey input[type="email"]:focus,
+.card.blue-grey input[type="password"]:focus {
+  border-bottom: 1px solid var(--bybit-yellow) !important;
+  box-shadow: 0 1px 0 0 var(--bybit-yellow) !important;
+}
+
+.card.blue-grey input[type="text"]::placeholder,
+.card.blue-grey input[type="number"]::placeholder,
+.card.blue-grey input[type="email"]::placeholder,
+.card.blue-grey input[type="password"]::placeholder {
+  color: var(--bybit-muted) !important;
+  opacity: 0.7;
+}
+
+.card.blue-grey .input-field label {
+  color: var(--bybit-muted) !important;
+}
+
+.card.blue-grey .input-field label.active {
+  color: var(--bybit-yellow) !important;
+}
+
 .prediction-block .collection-item:last-child {
   border-bottom: none;
 }

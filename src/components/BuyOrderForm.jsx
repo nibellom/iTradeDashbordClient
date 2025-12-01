@@ -46,6 +46,7 @@ const BuyOrderForm = ({ email, refreshUserData }) => {
           value={symbol}
           onChange={(e) => setSymbol(e.target.value.toUpperCase())}
           placeholder="Например: BTCUSDT"
+          style={{ color: '#f4f5f7' }}
         />
         <label className="active">Символ</label>
       </div>
@@ -55,6 +56,7 @@ const BuyOrderForm = ({ email, refreshUserData }) => {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           placeholder="Цена"
+          style={{ color: '#f4f5f7' }}
         />
         <label className="active">Цена</label>
       </div>
@@ -64,6 +66,7 @@ const BuyOrderForm = ({ email, refreshUserData }) => {
           value={qty}
           onChange={(e) => setQty(e.target.value)}
           placeholder="Объём"
+          style={{ color: '#f4f5f7' }}
         />
         <label className="active">Объём</label>
       </div>

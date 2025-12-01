@@ -49,6 +49,7 @@ const SellOffsetOrderForm = ({ email, refreshUserData }) => {
             value={symbol}
             onChange={(e) => setSymbol(e.target.value)}
             placeholder="Название контракта"
+            style={{ color: '#f4f5f7' }}
           />
         </div>
         <div className="input-field">
@@ -57,6 +58,7 @@ const SellOffsetOrderForm = ({ email, refreshUserData }) => {
             value={entryPrice}
             onChange={(e) => setEntryPrice(e.target.value)}
             placeholder="Цена входа"
+            style={{ color: '#f4f5f7' }}
           />
         </div>
         <div className="input-field">
@@ -65,6 +67,7 @@ const SellOffsetOrderForm = ({ email, refreshUserData }) => {
             value={sellPrice}
             onChange={(e) => setSellPrice(e.target.value)}
             placeholder="Цена продажи"
+            style={{ color: '#f4f5f7' }}
           />
         </div>
         <div className="input-field">
@@ -73,6 +76,7 @@ const SellOffsetOrderForm = ({ email, refreshUserData }) => {
             value={qty}
             onChange={(e) => setQty(e.target.value)}
             placeholder="Объем"
+            style={{ color: '#f4f5f7' }}
           />
         </div>
         <button className="btn red" onClick={handleSell}>

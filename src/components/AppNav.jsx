@@ -64,7 +64,10 @@ const AppNav = () => {
               <li><Link to="/transactions" className="nav-dropdown-link" onClick={handleLinkClick}>Transactions</Link></li>
               <li><Link to="/rewards" className="nav-dropdown-link" onClick={handleLinkClick}>Rewards</Link></li>
               {employee && employee.role === 'admin' && (
-                <li><Link to="/employees" className="nav-dropdown-link" onClick={handleLinkClick}>Employees</Link></li>
+                <>
+                  <li><Link to="/employees" className="nav-dropdown-link" onClick={handleLinkClick}>Employees</Link></li>
+                  <li><Link to="/telegram-messages" className="nav-dropdown-link" onClick={handleLinkClick}>Telegram Messages</Link></li>
+                </>
               )}
             </ul>
           </li>

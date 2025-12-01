@@ -1,0 +1,334 @@
+.telegram-messages-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.telegram-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.telegram-header h1 {
+  margin: 0 0 8px;
+  font-size: 1.75rem;
+  color: var(--bybit-text);
+}
+
+.telegram-subtitle {
+  color: var(--bybit-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.refresh-button {
+  background: var(--bybit-card-secondary);
+  border: 1px solid var(--bybit-border);
+  color: var(--bybit-text);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.refresh-button:hover:not(:disabled) {
+  background: rgba(252, 213, 53, 0.1);
+  border-color: var(--bybit-yellow);
+  color: var(--bybit-yellow);
+}
+
+.refresh-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.telegram-stats {
+  padding: 20px;
+}
+
+.telegram-stats h3 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+  color: var(--bybit-text);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  background: var(--bybit-card-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--bybit-border);
+}
+
+.stat-label {
+  color: var(--bybit-muted);
+  font-size: 0.85rem;
+}
+
+.stat-value {
+  color: var(--bybit-yellow);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.telegram-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-section h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--bybit-text);
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bybit-card-secondary);
+  border: 1px solid var(--bybit-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkbox-label:hover {
+  background: rgba(252, 213, 53, 0.05);
+  border-color: rgba(252, 213, 53, 0.3);
+}
+
+.checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--bybit-border);
+  border-radius: 4px;
+  background: var(--bybit-card);
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+  background: var(--bybit-yellow);
+  border-color: var(--bybit-yellow);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #111;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.checkbox-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.checkbox-title {
+  color: var(--bybit-text);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.checkbox-description {
+  color: var(--bybit-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.checkbox-count {
+  color: var(--bybit-yellow);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.selected-info {
+  padding: 12px 16px;
+  background: rgba(252, 213, 53, 0.1);
+  border: 1px solid rgba(252, 213, 53, 0.3);
+  border-radius: 8px;
+  color: var(--bybit-yellow);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.message-textarea {
+  width: 100%;
+  background: var(--bybit-card-secondary);
+  border: 1px solid var(--bybit-border);
+  border-radius: 8px;
+  padding: 16px;
+  color: var(--bybit-text);
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 150px;
+  transition: border-color 0.3s ease;
+}
+
+.message-textarea:focus {
+  outline: none;
+  border-color: var(--bybit-yellow);
+}
+
+.message-textarea::placeholder {
+  color: var(--bybit-muted);
+  opacity: 0.7;
+}
+
+.textarea-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--bybit-muted);
+}
+
+.char-count {
+  font-weight: 500;
+}
+
+.error-message {
+  padding: 16px;
+  background: rgba(255, 76, 76, 0.15);
+  border: 1px solid rgba(255, 76, 76, 0.3);
+  border-radius: 8px;
+  color: #ff8c8c;
+  font-size: 0.9rem;
+}
+
+.result-message {
+  padding: 16px;
+  background: rgba(0, 209, 178, 0.15);
+  border: 1px solid rgba(0, 209, 178, 0.3);
+  border-radius: 8px;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #00d1b2;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.result-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #00d1b2;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.result-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--bybit-text);
+  font-size: 0.9rem;
+}
+
+.result-errors {
+  margin-top: 8px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.result-errors summary {
+  cursor: pointer;
+  color: var(--bybit-yellow);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.result-errors ul {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+  color: var(--bybit-muted);
+  font-size: 0.85rem;
+}
+
+.result-errors li {
+  margin: 4px 0;
+}
+
+.send-button {
+  background: var(--bybit-yellow);
+  color: #111;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  align-self: flex-start;
+}
+
+.send-button:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.send-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .telegram-header {
+    flex-direction: column;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

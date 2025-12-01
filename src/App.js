@@ -6,6 +6,7 @@ import PendingRewards from './components/PendingRewards';
 import PricePredictorPage from './pages/PricePredictorPage';
 import MetricsPage from './pages/MetricsPage';
 import EmployeesPage from './pages/EmployeesPage';
+import TelegramMessagesPage from './pages/TelegramMessagesPage';
 import PendingActivationPage from './pages/PendingActivationPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -76,6 +77,14 @@ const App = () => {
                     element={
                       <ProtectedRoute>
                         <EmployeesPage />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/telegram-messages"
+                    element={
+                      <ProtectedRoute requireAdmin>
+                        <TelegramMessagesPage />
                       </ProtectedRoute>
                     }
                   />

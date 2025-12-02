@@ -48,6 +48,9 @@ const AppNav = () => {
         <ul className={`bybit-nav__links ${menuOpen ? 'is-open' : ''}`}>
           <li><Link to="/" className="nav-link" onClick={handleLinkClick}>Dashboard</Link></li>
           <li><Link to="/predictor" className="nav-link" onClick={handleLinkClick}>Price Predictor</Link></li>
+          {employee && employee.role === 'admin' && (
+            <li><Link to="/trading-bot" className="nav-link" onClick={handleLinkClick}>Trading Bot</Link></li>
+          )}
           <li 
             className="nav-admin-menu"
             onMouseEnter={() => setAdminMenuOpen(true)}

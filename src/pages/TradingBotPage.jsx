@@ -8,7 +8,8 @@ const TradingBotPage = () => {
     target: '',
     priceStart: '',
     priceStop: '',
-    nickname: ''
+    nickname: '',
+    entryPriceOffset: '0.1'
   });
   const [statusWork, setStatusWork] = useState('0');
   const [loading, setLoading] = useState(true);
@@ -32,7 +33,8 @@ const TradingBotPage = () => {
           target: response.data.settings.target || '',
           priceStart: response.data.settings.priceStart || '',
           priceStop: response.data.settings.priceStop || '',
-          nickname: response.data.settings.nickname || ''
+          nickname: response.data.settings.nickname || '',
+          entryPriceOffset: response.data.settings.entryPriceOffset || '0.1'
         });
         setStatusWork(response.data.settings.statusWork || '0');
       }
@@ -212,6 +214,24 @@ const TradingBotPage = () => {
                 placeholder="Например: ag"
                 required
               />
+            </div>
+
+            <div className="input-field">
+              <label htmlFor="entryPriceOffset">Entry Price Offset (Запас для входа)</label>
+              <input
+                type="number"
+                id="entryPriceOffset"
+                name="entryPriceOffset"
+                value={settings.entryPriceOffset}
+                onChange={handleInputChange}
+                placeholder="Например: 0.1"
+                step="0.01"
+                min="0"
+                required
+              />
+              <span style={{ fontSize: '0.85rem', color: 'var(--bybit-muted)', marginTop: '4px', display: 'block' }}>
+                Цена входа = рыночная цена + offset
+              </span>
             </div>
           </div>
 

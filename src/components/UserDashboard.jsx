@@ -12,6 +12,7 @@ const UserDashboard = () => {
   const [dealsMap, setDealsMap] = useState({}); // email => сделки
   const [loadingDealsMap, setLoadingDealsMap] = useState({}); // email => загрузка сделок
   const [cancelSymbolsMap, setCancelSymbolsMap] = useState({}); // email => введённый символ
+  const [togglingStatus, setTogglingStatus] = useState({}); // email => загрузка переключения статуса
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -120,6 +121,36 @@ const UserDashboard = () => {
     }
   };
 
+  const handleToggleTradingStatus = async (email, currentStatus) => {
+    const newStatus = currentStatus === '1' ? '0' : '1';
+    setTogglingStatus(prev => ({ ...prev, [email]: true }));
+
+    try {
+      const res = await axios.put(`/api/user/${email}/trading-status`, {
+        startTrading: newStatus
+      });
+
+      if (res.data.success) {
+        // Обновляем статус в локальном состоянии
+        setUsers(prev =>
+          prev.map(user =>
+            user.email === email
+              ? { ...user, startTrading: newStatus, tradingBalance: res.data.user?.tradingBalance || user.tradingBalance || user.balance }
+              : user
+          )
+        );
+        alert(res.data.message);
+      } else {
+        alert('❌ Ошибка: ' + (res.data.error || 'Неизвестная ошибка'));
+      }
+    } catch (err) {
+      console.error('Ошибка изменения статуса торговли:', err);
+      alert('Ошибка сети: ' + (err.response?.data?.error || err.message));
+    } finally {
+      setTogglingStatus(prev => ({ ...prev, [email]: false }));
+    }
+  };
+
   if (loading) return <div className="center-align">Загрузка балансов...</div>;
 
   if (error) {
@@ -157,6 +188,32 @@ const UserDashboard = () => {
                   <p><strong>Идентификатор:</strong> {user.phon}</p>
                   
                   <p><strong>Депозит:</strong> {user.depozit} USDT</p>
+                  
+                  <p><strong>Баланс для торговли:</strong> {user.tradingBalance || user.balance || '0'} USDT</p>
+                  
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '12px', marginBottom: '12px' }}>
+                    <p style={{ margin: 0 }}>
+                      <strong>Статус торговли:</strong>{' '}
+                      <span style={{ 
+                        color: user.startTrading === '1' ? '#00d1b2' : '#ff8c8c',
+                        fontWeight: '600'
+                      }}>
+                        {user.startTrading === '1' ? '🟢 Активна' : '🔴 Остановлена'}
+                      </span>
+                    </p>
+                    <button
+                      className={`btn btn-small ${user.startTrading === '1' ? 'red' : 'green'} lighten-1`}
+                      onClick={() => handleToggleTradingStatus(user.email, user.startTrading)}
+                      disabled={togglingStatus[user.email]}
+                      style={{ marginLeft: 'auto' }}
+                    >
+                      {togglingStatus[user.email]
+                        ? '...'
+                        : user.startTrading === '1'
+                        ? '⛔ Остановить'
+                        : '🚀 Запустить'}
+                    </button>
+                  </div>
                   {user.error ? (
                     <p className="red-text text-lighten-2">Ошибка: {user.error}</p>
                   ) : (

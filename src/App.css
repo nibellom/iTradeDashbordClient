@@ -25,6 +25,8 @@ body {
   background: #050607;
   border-bottom: 1px solid var(--bybit-border);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  position: relative;
+  z-index: 1000;
 }
 
 .bybit-nav__inner {
@@ -446,7 +448,11 @@ table {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
-    position: relative;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 2000;
     margin-left: 0;
   }
 
@@ -468,6 +474,12 @@ table {
     background: rgba(15, 20, 29, 0.95);
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   }
 }
 

@@ -32,7 +32,7 @@ const AppNav = () => {
     <nav className="bybit-nav">
       <div className="nav-wrapper container bybit-nav__inner">
         <Link to="/" className="brand-logo bybit-logo" onClick={handleLinkClick}>
-          iTrade Dashbord
+          Dashboard
         </Link>
         <button
           className={`nav-toggle ${menuOpen ? 'is-open' : ''}`}

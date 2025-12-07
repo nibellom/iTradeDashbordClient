@@ -19,7 +19,18 @@ const AppNav = () => {
   }, []);
 
   const handleNavToggle = () => setMenuOpen((prev) => !prev);
-  const handleLinkClick = () => setMenuOpen(false);
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+    setAdminMenuOpen(false);
+  };
+
+  const handleAdminToggle = (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      e.stopPropagation();
+      setAdminMenuOpen(!adminMenuOpen);
+    }
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -56,9 +67,27 @@ const AppNav = () => {
             onMouseEnter={() => setAdminMenuOpen(true)}
             onMouseLeave={() => setAdminMenuOpen(false)}
           >
-            <span className="nav-link nav-link--dropdown">
+            <span 
+              className="nav-link nav-link--dropdown"
+              onClick={handleAdminToggle}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  handleAdminToggle(e);
+                }
+              }}
+            >
               Admin
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: '6px', display: 'inline-block' }}>
+              <svg 
+                width="12" 
+                height="12" 
+                viewBox="0 0 12 12" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg" 
+                className={`admin-dropdown-arrow ${adminMenuOpen ? 'is-open' : ''}`}
+                style={{ marginLeft: '6px', display: 'inline-block' }}
+              >
                 <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
